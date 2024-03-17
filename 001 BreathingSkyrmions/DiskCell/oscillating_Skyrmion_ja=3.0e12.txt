@@ -68,7 +68,7 @@
     Ba:=0.1
     B_ext=vector(0.0,0.0,Ba)
 
-    autosave(m, 1e-11)
-    tableautosave(1e-11)
+    autosave(m, 5e-12)
+    tableautosave(5e-12)
     run(5e-09)
     

@@ -56,7 +56,7 @@
 
     //Temp=300.00
 
-    ja:=3000000000000.0 			// A/m2
+    ja:=1000000000000.0 			// A/m2
     J.setRegion(1,vector(0,0,-ja)) 	// A/m2
 
     Dind = Dind_ini
@@ -68,7 +68,7 @@
     Ba:=0.1
     B_ext=vector(0.0,0.0,Ba)
 
-    autosave(m, 1e-11)
-    tableautosave(1e-11)
+    autosave(m, 5e-12)
+    tableautosave(5e-12)
     run(5e-09)
     
