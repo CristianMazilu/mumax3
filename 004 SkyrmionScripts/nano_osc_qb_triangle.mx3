@@ -1,0 +1,50 @@
+setgridsize(256,256,1)
+setcellsize(1e-9,1e-9,1e-9)
+setgeom( imageShape("mask.png") )
+sizeX2 := 30e-9
+
+defRegion(1, circle(sizeX2))
+
+Msat = 580e+3
+Aex = 1.5e-11
+alpha = 0.3
+Dind_ini := 3e-3
+Ku1_ini := 0.8e+6
+Dind = Dind_ini
+Ku1 = Ku1_ini
+AnisU = vector(0, 0, 1)
+m = NeelSkyrmion(1, -1)
+relax()
+save(m)
+
+V := 0.1
+Dind_red := Dind_ini * (1 - V)
+Ku1_red := Ku1_ini * (1 - V)
+
+lambda = 1
+Pol = 0.8
+epsilonprime = 0
+xi = 0.2
+fixedlayer = vector(0, 0, 1)
+
+ja := 3e+12
+J.setRegion(1, vector(0, 0, -ja))
+
+Dind = Dind_ini
+Ku1 = Ku1_ini
+AnisU = vector(0, 0, 1)
+
+Dind.setRegion(1, Dind_red)
+Ku1.setRegion(1, Ku1_red)
+AnisU = vector(0, 0, 1)
+
+Ba := 0
+
+f:=13.9e+9
+
+B_ext = vector(0.0, 0.0, Ba*sin(2*pi*f*t))
+autosave(m, 10e-12)
+
+tableadd(ext_topologicalcharge)
+tableautosave(1e-12)
+run(10e-9)
