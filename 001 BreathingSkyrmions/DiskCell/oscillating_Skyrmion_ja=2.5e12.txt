@@ -56,7 +56,7 @@
 
     //Temp=300.00
 
-    ja:=3000000000000.0 			// A/m2
+    ja:=2500000000000.0 			// A/m2
     J.setRegion(1,vector(0,0,-ja)) 	// A/m2
 
     Dind = Dind_ini

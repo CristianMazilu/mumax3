@@ -6,7 +6,7 @@
 //  If you use mumax in any work or publication,                      //
 //  we kindly ask you to cite the references in references.bib        //
 //********************************************************************//
-//output directory: oscillating_Skyrmion_ja=3.0e12.out/
+//output directory: oscillating_Skyrmion_ja=2.75e12.out/
 sizeX := 200e-9
 sizeY := 200e-9
 sizeZ := 1e-9
@@ -38,7 +38,7 @@ Pol = 0.8
 epsilonprime = 0
 xi = 0.2
 fixedlayer = vector(0, 0, 1)
-ja := 3000000000000.0
+ja := 2750000000000.0
 J.setRegion(1, vector(0, 0, -ja))
 Dind = Dind_ini
 Ku1 = Ku1_ini

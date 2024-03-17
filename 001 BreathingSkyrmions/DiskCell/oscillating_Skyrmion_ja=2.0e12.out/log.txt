@@ -6,7 +6,7 @@
 //  If you use mumax in any work or publication,                      //
 //  we kindly ask you to cite the references in references.bib        //
 //********************************************************************//
-//output directory: oscillating_Skyrmion_ja=3.0e12.out/
+//output directory: oscillating_Skyrmion_ja=2.0e12.out/
 sizeX := 200e-9
 sizeY := 200e-9
 sizeZ := 1e-9
@@ -38,7 +38,7 @@ Pol = 0.8
 epsilonprime = 0
 xi = 0.2
 fixedlayer = vector(0, 0, 1)
-ja := 3000000000000.0
+ja := 2000000000000.0
 J.setRegion(1, vector(0, 0, -ja))
 Dind = Dind_ini
 Ku1 = Ku1_ini
@@ -53,6 +53,6 @@ run(5e-09)
 //Please cite the following references, relevant for your simulation. //
 //See bibtex file in output folder for justification.                 //
 //********************************************************************//
-//   * Vansteenkiste et al., AIP Adv. 4, 107133 (2014).
 //   * Exl et al., J. Appl. Phys. 115, 17D118 (2014).
 //   * Mulkers et al., Phys. Rev. B 95, 144401 (2017).
+//   * Vansteenkiste et al., AIP Adv. 4, 107133 (2014).
