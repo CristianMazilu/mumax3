@@ -1,2 +1,5 @@
 *.ovf
 *.npy
+*.jpg
+*.png
+*.webm
