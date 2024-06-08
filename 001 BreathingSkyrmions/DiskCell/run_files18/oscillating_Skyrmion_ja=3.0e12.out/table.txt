@@ -1,1 +1,0 @@
-# t (s)	mx ()	my ()	mz ()	E_total (J)	MaxAngle (rad)
