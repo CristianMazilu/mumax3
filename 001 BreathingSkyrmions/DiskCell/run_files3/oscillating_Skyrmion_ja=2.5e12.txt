@@ -1,0 +1,76 @@
+
+    // geometry
+    sizeX := 200e-9
+    sizeY := 200e-9
+    sizeZ :=1e-9
+
+    // inner circle for injecting current
+
+    sizeX2 := 50e-9
+    sizey2 := 50e-9
+
+    Nx := 192
+    Ny := 192
+    Nz := 1
+    
+    setgridsize(Nx, Ny, Nz)
+    setcellsize(sizeX/Nx, sizeY/Ny, sizeZ/Nz)
+    setGeom(ellipse(sizeX, sizeY))
+
+    defRegion(1,circle(sizeX2))
+
+
+    // set up free layer
+    Msat = 580e+3    // A/m
+    Aex= 1.5e-11     // exchange stiffness Fe
+    alpha = 0.3
+
+    //m = uniform(0, 0, 1)
+
+    Dind_ini :=0.003   // J/m2   calculated ab-initio Au/Fe/MgO
+    Ku1_ini := 800000.0 // J/m3   calculated ab-initio Au/Fe/MgO
+
+    Dind = Dind_ini
+    Ku1 =Ku1_ini
+    AnisU = vector(0,0,1)
+
+    m = NeelSkyrmion(1,-1).scale(3,3,1)
+
+    minimize()
+
+    V:=0.0
+    Dind_red:=Dind_ini*(1-V)
+    Ku1_red:= Ku1_ini*(1-V)
+    AnisU = vector(0,0,1)
+
+    // set up fixed and spacer layer parameters
+    lambda = 1
+    Pol= 0.8
+    epsilonprime = 0
+    xi=0.2
+
+    // set up fixed layer polarization
+
+    fixedlayer = vector(0, 0, 1)
+
+
+    //Temp=300.00
+
+    ja:=2500000000000.0			// A/m2
+    J.setRegion(1,vector(0,0,-ja)) 	// A/m2
+
+    Dind = Dind_ini
+    Ku1 = Ku1_ini
+
+    Dind.setRegion(1, Dind_red)
+    Ku1.setRegion(1, Ku1_red)
+
+    Ba:=0.1
+    B_ext=vector(0.0,0.0,Ba)
+
+    tableadd(E_total)
+    tableadd(maxangle)
+    autosave(m, 2.5e-12)
+    tableautosave(2.5e-12)
+    run(3e-09)
+    
